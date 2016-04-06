@@ -1,0 +1,21 @@
+%ul.pagination{"aria-label" => "Pagination", :role => "navigation"}
+  %li.pagination-previous{class: page > 1 ? '' : 'disabled'}
+    Previous
+    %span.show-for-sr page
+    -skip = false
+  -pages.times do |page_index|
+    -page_index += 1
+    -if page_index > 4 && page_index < pages - 4
+      -unless skip
+        %li.ellipsis{"aria-hidden" => "true"}
+      -skip = true
+      -next
+
+    -elsif page == page_index
+      %li.current=page_index
+    -else
+      %li=link_to(page_index, home_path(page: page_index, per_page: 100))
+  %li.pagination-next
+    %a{"aria-label" => "Next page", :href => "#"}
+      Next
+      %span.show-for-sr page
