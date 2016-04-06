@@ -8,7 +8,7 @@ class FizzBuzzController < ApplicationController
   def listing_params
     {
         page:     params[:page].nil? ? 1 : params[:page] ,
-        per_page: params[:per_page].nil? ? 10 : params[:per_page]
+        per_page: params[:per_page].nil? ? 100 : params[:per_page]
     }
   end
 
