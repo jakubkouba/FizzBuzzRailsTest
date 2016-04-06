@@ -7,12 +7,10 @@ class MyFizzBuzz
 
   end
 
-  def get_range
-    begin_at = (@page - 1) * @per_page
+  def fizz_buzz_page
+    begin_at = ((@page - 1) * @per_page) + 1
     stop_at = @page * @per_page
-    (begin_at..stop_at).to_a.each do |val|
-
-    end
+    (begin_at..stop_at).to_a.map {|val| fizz_buzz(val)}
   end
 
   def fizz_buzz(val)
