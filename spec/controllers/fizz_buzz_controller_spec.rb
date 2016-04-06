@@ -7,6 +7,12 @@ RSpec.describe FizzBuzzController, type: :controller do
       get :index
       expect(response).to have_http_status(:success)
     end
+
+    it "assings @values" do
+      get :index
+
+      expect(assigns(:values)).to be_an_instance_of Array
+    end
   end
 
 end
