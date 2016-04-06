@@ -14,7 +14,11 @@ require Rails.root.join('lib/my_fizz_buzz')
 RSpec.describe "MyFizzBuzz" do
 
   it "returns 1" do
-    my_fizz_buzz = MyFizzBuzz.new(page: 2, per_page: 10)
+    args = {
+        page: 2,
+        per_page: 10
+    }
+    my_fizz_buzz = MyFizzBuzz.new(args)
     expect(my_fizz_buzz.get_values).to be == 1
   end
 
