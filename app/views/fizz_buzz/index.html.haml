@@ -3,7 +3,7 @@
 
 =form_tag(show_path, id: 'pagination-form') do
   =select_tag(:per_page, options_for_select(@facade[:per_page_options], @facade[:per_page]))
-  =hidden_field_tag(:page, 1)
+  =hidden_field_tag(:page, @facade[:page])
 
 %ul.fizz-buzz-list
   -@facade[:values].each do |val|

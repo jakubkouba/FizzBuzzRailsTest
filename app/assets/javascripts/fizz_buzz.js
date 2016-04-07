@@ -8,6 +8,7 @@ FizzBuzz.pagination = function () {
         $form = $('#pagination-form'),
         $links = $('.pagination a'),
         $page = $('#page'),
+        $options = $('#per_page'),
 
 
         submitForm = function($link){
@@ -16,10 +17,17 @@ FizzBuzz.pagination = function () {
         },
 
         bindEvents = function(){
-          $links.click(function(e){
-              e.preventDefault();
-              submitForm($(this));
-          });
+            $links.click(function(e){
+                e.preventDefault();
+                submitForm($(this));
+            });
+
+            $options.change(function(){
+                $form.submit();
+            });
+
+
+
         };
 
     return {
