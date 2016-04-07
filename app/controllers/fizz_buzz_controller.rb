@@ -18,8 +18,8 @@ class FizzBuzzController < ApplicationController
   # This might create record with 0 number and marked number as liked
   def like
     begin
-      Like.like_toggle(params[:number_to_like])
-      render json: {res: true}
+      liked = Like.like_toggle(params[:number_to_like])
+      render json: {res: true, liked: liked}
     rescue
       render json: {res: false}
     end
