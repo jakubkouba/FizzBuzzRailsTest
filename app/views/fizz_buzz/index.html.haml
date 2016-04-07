@@ -1,6 +1,9 @@
 
 =render partial: 'partials/pagination', locals: @facade
 
+=form_tag(home_path, id: 'pagination-form') do
+  =select_tag(:per_page, options_for_select(@facade[:per_page_options], @facade[:per_page]))
+
 %ul.fizz-buzz-list
   -@facade[:values].each do |val|
     %li.item=val

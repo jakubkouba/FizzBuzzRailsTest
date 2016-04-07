@@ -1,8 +1,9 @@
 class FizzBuzzController < ApplicationController
 
   def index
-    @facade = fizz_buzz_index_facade.to_h
-    @facade[:pages] = fizz_buzz_index_facade.pages
+    @facade                    = fizz_buzz_index_facade.to_h
+    @facade[:pages]            = fizz_buzz_index_facade.pages
+    @facade[:per_page_options] = PER_PAGE_OPTIONS.map { |val| [val, val] }
   end
 
   def listing_params

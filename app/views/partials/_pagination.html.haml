@@ -1,8 +1,9 @@
 %ul.pagination{"aria-label" => "Pagination", :role => "navigation"}
   -if page > 1
-    %li.pagination-previous=link_to('Previous', home_path(page: page - 1, per_page: per_page))
+    %li.pagination-previous
+      %a{href: '#', data: {page: page - 1}} Prev
   -else
-    %li Previous
+    %li.inactive Prev
   -skip = false
   -pages.times do |page_index|
     -page_index += 1
@@ -15,8 +16,10 @@
     -elsif page == page_index
       %li.current=page_index
     -else
-      %li=link_to(page_index, home_path(page: page_index, per_page: per_page))
+      %li
+        %a{href: '#', data: {page: page}}= page_index
   -if page < pages
-    %li.pagination-next=link_to('Next', home_path(page: page + 1, per_page: per_page))
+    %li.pagination-next
+      %a{href: '#', data: {page: page + 1}} Next
   -else
-    %li Next
+    %li.inactive Next
