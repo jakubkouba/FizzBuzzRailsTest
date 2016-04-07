@@ -62,4 +62,19 @@ RSpec.describe Like, type: :model do
 
   end
 
+  describe "::get_likes" do
+
+    before do
+      numbers = (10..20).to_a
+      numbers.each { |number| FactoryGirl.create :like, number_to_like: number }
+    end
+
+
+    it "returns numbers btween given range" do
+      result = Like.get_likes(12, 17)
+      expect(result.size).to be == 6
+    end
+
+  end
+
 end

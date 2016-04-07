@@ -27,4 +27,8 @@ class Like < ActiveRecord::Base
     end
   end
 
+  def self.get_likes(from, to)
+    self.where(number_to_like: from..to).to_a
+  end
+
 end
