@@ -10,7 +10,7 @@ class MyFizzBuzz
   def fizz_buzz_page
     begin_at = ((@page - 1) * @per_page) + 1
     stop_at = @page * @per_page
-    (begin_at..stop_at).to_a.map {|val| fizz_buzz(val)}
+    (begin_at..stop_at).to_a.map {|val| { val => fizz_buzz(val)} }
   end
 
   def fizz_buzz(val)
