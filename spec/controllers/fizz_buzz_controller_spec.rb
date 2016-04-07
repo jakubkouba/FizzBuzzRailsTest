@@ -25,6 +25,18 @@ RSpec.describe FizzBuzzController, type: :controller do
 
     end
 
+    describe "#like" do
+
+      before do
+        post :like, number_to_like: 1234, format: :json
+      end
+
+      it "renders json {res: true} if everything ok" do
+        expect(JSON.parse(response.body)).to be == { "res" => true }
+      end
+
+    end
+
   end
 
 end

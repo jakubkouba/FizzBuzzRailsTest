@@ -6,6 +6,20 @@ class FizzBuzzController < ApplicationController
     @facade[:per_page_options] = PER_PAGE_OPTIONS.map { |val| [val, val] }
   end
 
+  # Calls Like model to toggle like
+  # Like model should have validation not allowing to save 0
+  # and use save! to produce Exception to work it properly
+  #
+  # This might create record with 0 number and marked number as liked
+  def like
+    begin
+      Like.like_toggle(params[:number_to_like])
+      render json: {res: true}
+    rescue
+      render json: {res: false}
+    end
+  end
+
   def listing_params
     {
         page:     params[:page].nil? ? DEF_PAGE_NUM : params[:page].to_i ,

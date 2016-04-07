@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   match '/show', to: 'fizz_buzz#index', as: :show, via: :post
 
+  match '/show', to: 'fizz_buzz#like', as: :set_like, via: :post
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
