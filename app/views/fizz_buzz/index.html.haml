@@ -7,5 +7,9 @@
 
 %ul.fizz-buzz-list
   -@facade[:values].each do |val|
-    %li.item=val
+    -link = capture_haml do
+      = link_to val[:fizz_buzz], set_like_path, data: { number_to_like: val[:number] }, method: :post, remote: true, class: 'set-like'
+    -liked = nil
+    -@facade[:likes].each { |like| liked = val[:number] == like.number_to_like ? 'liked' : nil }
+    %li.item{ class: liked }= link
 

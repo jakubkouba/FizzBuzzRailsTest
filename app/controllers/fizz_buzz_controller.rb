@@ -4,6 +4,11 @@ class FizzBuzzController < ApplicationController
     @facade                    = fizz_buzz_index_facade.to_h
     @facade[:pages]            = fizz_buzz_index_facade.pages
     @facade[:per_page_options] = PER_PAGE_OPTIONS.map { |val| [val, val] }
+
+    from = @facade[:values][0][:number]
+    to = @facade[:values][-1][:number]
+    @facade[:likes] = Like.get_likes(from, to)
+
   end
 
   # Calls Like model to toggle like
