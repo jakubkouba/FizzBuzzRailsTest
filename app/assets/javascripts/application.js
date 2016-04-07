@@ -12,9 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require turbolinks
 //= require_tree .
 
 $(function(){
    FizzBuzz.pagination().init();
 });
+$(function(){ $(document).foundation(); });
