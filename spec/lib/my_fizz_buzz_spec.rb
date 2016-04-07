@@ -45,19 +45,18 @@ RSpec.describe "MyFizzBuzz" do
 
     subject(:fizz_buzz_page) { @my_fizz_buzz.fizz_buzz_page }
 
-    it { is_expected.to start_with([ 11 , 11 ]) }
+    it { is_expected.to start_with({ number: 11 , fizz_buzz: 11 }) }
 
-    it { is_expected.to end_with([ 20 , 'Buzz' ]) }
+    it { is_expected.to end_with({ number: 20 , fizz_buzz: 'Buzz' }) }
 
     it "returns array of size 10" do
       expect(fizz_buzz_page.size).to be == 10
     end
 
-    it "returns array of hashes like [ number , Fizz | Buzz | FizzBuzz | number ]" do
+    it "returns array of hashes like { number => number , fizz_buzz => Fizz | Buzz | FizzBuzz | number }" do
       expect(fizz_buzz_page).to be_an Array
       fizz_buzz_page.each do |val|
-        expect(val).to be_an Array
-        expect(val.size).to be == 2
+        expect(val).to be_an Hash
       end
     end
 
