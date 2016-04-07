@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root to: 'fizz_buzz#index', as: :home
 
+  match '/show', to: 'fizz_buzz#index', as: :show, via: :post
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
