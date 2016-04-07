@@ -13,7 +13,7 @@ require 'rails_helper'
 
 RSpec.describe Like, type: :model do
 
-  subject(:like) { FactoryGirl.create :like }
+  subject(:like) { FactoryGirl.build :like }
 
   context "validations" do
 
@@ -28,6 +28,27 @@ RSpec.describe Like, type: :model do
     it "saves record" do
       expect{ like.save }.to change(Like, :count).by 1
     end
+
+  end
+
+
+  describe "::like_toggle" do
+
+    let(:number) { 1234 }
+
+    it "creates new record if number doesn't exists" do
+      expect { Like.like_toggle(number) }.to change(Like, :count).by 1
+    end
+
+    it "set like_it to 0 if number is in DB" do
+      like.number_to_like = number
+      like.like_it = 1
+      like.save
+      Like.like_toggle(like.number_to_like)
+      set_like = Like.find_by_number_to_like(like.number_to_like)
+      expect(set_like.like_it).to be == 0
+    end
+
 
   end
 
