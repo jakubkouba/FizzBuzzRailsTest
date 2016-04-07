@@ -1,8 +1,7 @@
 
-=render partial: 'partials/pagination', locals: {page: @page, per_page: @per_page, max_items: @max_items, pages: @max_items / @per_page}
-
+=render partial: 'partials/pagination', locals: @facade
 
 %ul.fizz-buzz-list
-  -@values.each do |val|
+  -@facade[:values].each do |val|
     %li.item=val
 
