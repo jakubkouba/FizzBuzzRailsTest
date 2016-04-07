@@ -1,3 +1,32 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+// create namespace
+// It should be don through CJS with Require JS
+var FizzBuzz = FizzBuzz || {};
+
+FizzBuzz.pagination = function () {
+
+    var
+        $form = $('#pagination-form'),
+        $links = $('.pagination a'),
+        $page = $('#page'),
+
+
+        submitForm = function($link){
+            $page.val($link.data().page);
+            $form.submit();
+        },
+
+        bindEvents = function(){
+          $links.click(function(e){
+              e.preventDefault();
+              submitForm($(this));
+          });
+        };
+
+    return {
+        init: function(){
+            bindEvents();
+        }
+    }
+
+
+};
