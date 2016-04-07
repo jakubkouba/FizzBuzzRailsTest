@@ -12,5 +12,24 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  subject(:like) { FactoryGirl.create :like }
+
+  context "validations" do
+
+    # this fails cause integer attr converts inputs to int
+    # it { is_expected.to validate_numericality_of(:number_to_like).only_integer }
+    # it { is_expected.to validate_numericality_of(:like_it).only_integer }
+
+  end
+
+  context "with valid params" do
+
+    it "saves record" do
+      expect{ like.save }.to change(Like, :count).by 1
+    end
+
+  end
+
+
 end

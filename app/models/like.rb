@@ -11,6 +11,6 @@
 
 class Like < ActiveRecord::Base
 
-  validates :number_to_like, numericality: :only_integer
+  validates :number_to_like, :like_it, numericality: :only_integer
 
 end
