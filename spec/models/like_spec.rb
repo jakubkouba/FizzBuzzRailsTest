@@ -40,12 +40,17 @@ RSpec.describe Like, type: :model do
       expect { Like.like_toggle(number) }.to change(Like, :count).by 1
     end
 
-    context "record exists" do
+    context "record exists and is liked" do
 
       before do
         like.number_to_like = number
         like.like_it = 1
         like.save
+        @like_toggle = Like.like_toggle(like.number_to_like)
+      end
+
+      it "returns false" do
+        expect(@like_toggle).to be_falsey
       end
 
       it "doesn't create new record" do
@@ -53,9 +58,27 @@ RSpec.describe Like, type: :model do
       end
 
       it "set like_it to 0 if number is in DB" do
-        Like.like_toggle(like.number_to_like)
         set_like = Like.find_by_number_to_like(like.number_to_like)
         expect(set_like.like_it).to be == 0
+      end
+    end
+
+    context "record exists and is unliked" do
+
+      before do
+        like.number_to_like = number
+        like.like_it        = 0
+        like.save
+        @like_toggle = Like.like_toggle(like.number_to_like)
+      end
+
+      it "returns true" do
+        expect(@like_toggle).to be_truthy
+      end
+
+      it "set like_it to 1 and return true" do
+        set_like = Like.find_by_number_to_like(like.number_to_like)
+        expect(set_like.like_it).to be == 1
       end
 
     end

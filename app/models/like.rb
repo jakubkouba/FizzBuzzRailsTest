@@ -20,10 +20,19 @@ class Like < ActiveRecord::Base
   def self.like_toggle(number)
     like = self.find_by_number_to_like number
     if like
-      like.like_it = 0
-      like.save
+      case like.like_it
+        when 0
+          like.like_it = 1
+          like.save!
+          return true
+        when 1
+          like.like_it = 0
+          like.save!
+          return false
+      end
     else
-      self.create(number_to_like: number, like_it: 1)
+      self.create!(number_to_like: number, like_it: 1)
+      return true
     end
   end
 
