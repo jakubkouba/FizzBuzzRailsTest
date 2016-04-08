@@ -28,6 +28,7 @@ I run of time and I don have pover to finish that.
 
 * there is no pagination option on site. I dont know how to pass it to links from select withou javascript.
 * only way how to change that is via url
+* view test are missing (didn't have a time to do all)
 
 
 
