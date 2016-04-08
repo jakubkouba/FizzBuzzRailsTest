@@ -17,7 +17,7 @@
       %li.current=page_index
     -else
       %li
-        %a{href: '#', data: {page: page_index}}= page_index
+        %a{href: show_path(page: page_index, per_page: @facade[:per_page] ), data: {page: page_index}}= page_index
   -if page < pages
     %li.pagination-next
       %a{href: '#', data: {page: page + 1}} Next

@@ -13,7 +13,14 @@ FizzBuzz.pagination = function () {
 
 
         submitForm = function($link){
-            $page.val($link.data().page);
+            var action = $form.attr('action');
+            action = action.split('/');
+            if ($link != undefined){
+                action[2] = $link.data().page;
+            }
+            action[3] = $options.val();
+            action = action.join('/');
+            $form.attr(action);
             $form.submit();
         },
 

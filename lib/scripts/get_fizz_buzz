@@ -1,0 +1,5 @@
+#!/bin/bash
+
+curl -X GET -H "Content-Type: application/json" "localhost:3000/show/$1/$2.json"
+echo
+

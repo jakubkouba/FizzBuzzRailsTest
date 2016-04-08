@@ -14,6 +14,11 @@ class FizzBuzzController < ApplicationController
     to = @facade[:values][-1][:number]
     @facade[:likes] = Like.get_likes(from, to)
 
+    respond_to do |format|
+      format.html
+      format.json { render json: @facade[:values] }
+    end
+
   end
 
   # Calls Like model to toggle like

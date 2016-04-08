@@ -1,26 +1,26 @@
 .row
   .big-6
     %h1 FizzBuzz
-    =form_tag(show_path, id: 'pagination-form') do
-      =label_tag(:per_page, 'Select page Items', class: 'per-page-select-label')
-      =select_tag(:per_page, options_for_select(@facade[:per_page_options], @facade[:per_page]), class: 'per-page-select')
-      =hidden_field_tag(:page, @facade[:page])
+    -#=form_tag(show_path(page: @facade[:page], per_page: @facade[:per_page] ), method: :get, id: 'pagination-form') do
+    -#  =label_tag(:per_page, 'Select page Items', class: 'per-page-select-label')
+    -#  =select_tag(:per_page, options_for_select(@facade[:per_page_options], @facade[:per_page]), class: 'per-page-select')
+    -#  =hidden_field_tag(:page, @facade[:page])
 
-      =render partial: 'partials/pagination', locals: @facade
+    =render partial: 'partials/pagination', locals: @facade
 
-      %ul.fizz-buzz-list.clearfix
-        -@facade[:values].each do |val|
-          -fizz_buzz_class = (val[:fizz_buzz].is_a? String) ? val[:fizz_buzz].downcase : nil
-          -link = capture_haml do
-            = link_to val[:fizz_buzz], set_like_path(number_to_like: val[:number]), method: :post, remote: true, class: "set-like #{fizz_buzz_class}"
-          -liked = false
-          -@facade[:likes].each do |like|
-            -if val[:number] == like.number_to_like && like.like_it == 1
-              %li.item.liked= link
-              -liked = true
-              -break
-          -unless liked
-            %li.item= link
+    %ul.fizz-buzz-list.clearfix
+      -@facade[:values].each do |val|
+        -fizz_buzz_class = (val[:fizz_buzz].is_a? String) ? val[:fizz_buzz].downcase : nil
+        -link = capture_haml do
+          = link_to val[:fizz_buzz], set_like_path(number_to_like: val[:number]), method: :post, remote: true, class: "set-like #{fizz_buzz_class}"
+        -liked = false
+        -@facade[:likes].each do |like|
+          -if val[:number] == like.number_to_like && like.like_it == 1
+            %li.item.liked= link
+            -liked = true
+            -break
+        -unless liked
+          %li.item= link
 
 
 

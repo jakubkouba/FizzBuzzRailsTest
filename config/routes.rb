@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'fizz_buzz#index', as: :home
 
-  match '/show', to: 'fizz_buzz#index', as: :show, via: :post
+  get '/show/:page/:per_page', to: 'fizz_buzz#index', as: :show
 
   match '/like', to: 'fizz_buzz#like', as: :set_like, via: :post
 
