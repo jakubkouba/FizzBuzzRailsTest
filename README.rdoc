@@ -15,40 +15,20 @@
 * run rails s
 * site is acessible on http://localhost:3000
 
-=== TODO
+== Client to consume API
 
-==== Select items per page
+* navigate to lib/scripts
+* run ./get_fizz_buzz page per_page => ./get_fizz_buzz 2 100 get second page with 100 per page items
 
-* Either over form submission by adding select field
-* Or by adding select field and add some jvascript
-* Third way: Idealy use javascript and ajax to get new set => use React or Angular etc.
+Client command line interface needs validation of parameters and help and reponse parsing.
+I run of time and I don have pover to finish that.
 
-==== Mark favourites
 
-* create model Likes
-* use rails_ujs to send index (number) by ajax on click
-* if have record with index (number) remove like
-* if not add like
-* get likes by indexes in Index action
-* during rendering add class like to particular number
+== Notes
 
-==== JSON API
+* there is no pagination option on site. I dont know how to pass it to links from select withou javascript.
+* only way how to change that is via url
 
-* use format to sort response (response.format do |format| .... ) on index action
 
-==== Client to consume JSON API
-
-* I'd use PHP
-* create bash script usin PHP #!/usr/bin/php
-* set resource
-* validates inputs comming from commandline
-* use curl to get response
-* use json_decode php function to parse json string
-* loop over array and echo each item
-
-=== As for CSS
-
-* I'd use Foundation
-* pagination has already structure to pick up Foundation css classes
 
 
