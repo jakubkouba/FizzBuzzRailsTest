@@ -20,7 +20,7 @@
 * navigate to lib/scripts
 * run ./get_fizz_buzz page per_page => ./get_fizz_buzz 2 100 get second page with 100 per page items
 
-Client command line interface needs validation of parameters and help and reponse parsing.
+Client command line interface needs validation of parameters, help option and reponse parsing.
 I run of time and I don have pover to finish that.
 
 
