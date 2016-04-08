@@ -1,5 +1,10 @@
 class FizzBuzzController < ApplicationController
 
+
+  # @facade should be Object itself which would handle
+  # all logic of handling pagination to not pollute controller method
+  # ideally place in Facades/fizz_buzz_facade.rb
+  # and called in index method @facade = FizzBuzz.new(fizz_buzz_values, listing_params, MAX_ITEMS)
   def index
     @facade                    = fizz_buzz_index_facade.to_h
     @facade[:pages]            = fizz_buzz_index_facade.pages
