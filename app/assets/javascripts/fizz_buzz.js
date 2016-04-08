@@ -50,7 +50,7 @@ FizzBuzz.pagination = function () {
 
     return {
         init: function(){
-            bindEvents();
+            //bindEvents();
             handleAjaxResponse();
         }
     }

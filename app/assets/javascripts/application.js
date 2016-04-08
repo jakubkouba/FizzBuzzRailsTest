@@ -17,6 +17,6 @@
 //= require_tree .
 
 $(function(){
-   //FizzBuzz.pagination().init();
+   FizzBuzz.pagination().init();
 });
 $(function(){ $(document).foundation(); });
