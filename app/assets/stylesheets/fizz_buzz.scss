@@ -1,3 +1,30 @@
 // Place all the styles related to the fizz_buzz controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.fizz{
+  color: #ffae00;
+}
+
+.buzz{
+  color: #3adb76;
+}
+
+.fizzbuzz{
+  color: coral;
+}
+
+.liked a{
+  color: darkred;
+  font-weight: bold;
+}
+
+.fizz-buzz-list{
+  list-style-type: none;
+  width: 50%;
+
+  .item{
+    float: left;
+    margin: 5px 10px;
+  }
+}
