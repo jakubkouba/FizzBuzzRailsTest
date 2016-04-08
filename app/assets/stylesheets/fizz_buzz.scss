@@ -16,12 +16,20 @@
 
 .liked a{
   color: darkred;
-  font-weight: bold;
+}
+
+.per-page-select-label{
+  float: left;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.per-page-select{
+  width: 100px;
 }
 
 .fizz-buzz-list{
   list-style-type: none;
-  width: 50%;
 
   .item{
     float: left;
