@@ -7,9 +7,15 @@
 
 %ul.fizz-buzz-list
   -@facade[:values].each do |val|
+    -fizz_buzz_class = (val[:fizz_buzz].is_a? String) ? val[:fizz_buzz].downcase : nil
     -link = capture_haml do
-      = link_to val[:fizz_buzz], set_like_path(number_to_like: val[:number]), method: :post, remote: true, class: 'set-like'
-    -liked = nil
-    -@facade[:likes].each { |like| liked = val[:number] == like.number_to_like ? 'liked' : nil }
-    %li.item{ class: liked }= link
+      = link_to val[:fizz_buzz], set_like_path(number_to_like: val[:number]), method: :post, remote: true, class: "set-like #{fizz_buzz_class}"
+    -liked = false
+    -@facade[:likes].each do |like|
+      -if val[:number] == like.number_to_like && like.like_it == 1
+        %li.item.liked= link
+        -liked = true
+        -break
+    -unless liked
+      %li.item= link
 
