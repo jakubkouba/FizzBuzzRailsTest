@@ -14,9 +14,9 @@ class MyFizzBuzz
   end
 
   def fizz_buzz(val, options = {})
-    options = { 3 => 'Fizz', 5 => 'Buzz' }.merge(options)
+    options = { fizz: 3, buzz: 5 }.merge(options)
     ret = ''
-    options.each { |number, label| ret += label if val % number == 0 }
+    options.each { |label, number| ret += label.to_s.capitalize if val % number == 0 }
     ret.empty? ? val : ret
   end
 

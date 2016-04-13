@@ -39,8 +39,12 @@ RSpec.describe "MyFizzBuzz" do
       expect(@my_fizz_buzz.fizz_buzz(13)).to be == 13
     end
 
-    it "returns Fizz if val = 7 and option is { 7 => 'Fizz' }" do
-      expect(@my_fizz_buzz.fizz_buzz(7, { 7 => 'Fizz' }))
+    it "returns Fizz if val = 7 and option is { fizz: 7 }" do
+      expect(@my_fizz_buzz.fizz_buzz(7, { fizz: 7 })).to be == 'Fizz'
+    end
+
+    it "returns 3 if option is { fizz: 7 }" do
+      expect(@my_fizz_buzz.fizz_buzz(3, { fizz: 7 })).to be == 3
     end
 
   end
