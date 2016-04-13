@@ -13,10 +13,10 @@ class MyFizzBuzz
     (begin_at..stop_at).to_a.map { |val| { number: val, fizz_buzz: fizz_buzz(val) } }
   end
 
-  def fizz_buzz(val)
+  def fizz_buzz(val, options = {})
+    options = { 3 => 'Fizz', 5 => 'Buzz' }.merge(options)
     ret = ''
-    ret += 'Fizz' if val % 3 == 0
-    ret += 'Buzz' if val % 5 == 0
+    options.each { |number, label| ret += label if val % number == 0 }
     ret.empty? ? val : ret
   end
 

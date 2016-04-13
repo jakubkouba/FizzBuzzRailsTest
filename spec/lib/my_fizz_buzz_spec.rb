@@ -39,6 +39,10 @@ RSpec.describe "MyFizzBuzz" do
       expect(@my_fizz_buzz.fizz_buzz(13)).to be == 13
     end
 
+    it "returns Fizz if val = 7 and option is { 7 => 'Fizz' }" do
+      expect(@my_fizz_buzz.fizz_buzz(7, { 7 => 'Fizz' }))
+    end
+
   end
 
   describe "#fizz_buzz_page" do
